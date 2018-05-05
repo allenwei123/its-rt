@@ -1,0 +1,26 @@
+body, div, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, i, b, textarea, button, input, select  {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  color: #313131;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+/*滚动条样式*/
+::-webkit-scrollbar {/*滚动条里面轨道*/
+width: 6px;
+background-color: transparent;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+background-color: #8899a7;
+border-radius: 4px;
+}
+@import '~antd/dist/antd.css';
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

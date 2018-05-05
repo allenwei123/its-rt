@@ -1,0 +1,63 @@
+    $headerBg:#3988ff;
+  $fontColor:#fff;
+  $headerH: 50px;
+  .c-header {
+    // position: fixed;
+    // top: 0;
+    width: 100%;
+    height: $headerH !important;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .15);
+    background: $headerBg !important;
+    line-height: 16px !important;
+    .c-logo {
+      float: left;
+      width:168px;
+      margin-top: 15px;
+      margin-left: 20px;
+      color:$fontColor;
+      font-size: 16px;
+    }
+    .c-account {
+      color: #fff;
+    }
+    .c-top-nav {
+      margin-top:10px;
+      li {
+        float: left;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 11px;
+        color:#ffffff;
+        cursor: pointer;
+        &.c-nav-active {
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          background-color: #d7e7ff;
+          color:#4f91f4;
+        }
+      }
+    }
+    .c-navgator {
+      position: absolute;
+      right: 0px;
+      z-index: 100;
+      font-size: 14px;
+      li {
+        float: left;
+        height: $headerH;
+        line-height:$headerH;
+        color: $fontColor;
+        margin-right:7px;
+      }
+    }
+    .c-top_bar_area {
+      float: left;
+      color: #1a6f4d;
+      height: $headerH;
+      padding: 0 12px;
+      cursor: pointer;
+    }
+    .c-sidebar-conl {
+      color:white;
+    }
+  }
