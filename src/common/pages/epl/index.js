@@ -2,22 +2,18 @@ import React from 'react'
 import { Table ,Form ,Icon, Input } from 'antd'
 import { connect } from 'react-redux'
 import { test as ChangeTest } from '@/store/actions/common'
-import request from '@/common/utils/axios'
 
 const FormItem = Form.Item;
 
 class BaseManage extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     state = {
         name : '基础管理',
         columns : [
-            { title: '名称', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
-            { title: '性别', dataIndex: 'sex', key: '9' },
-            { title: '年龄', dataIndex: 'age', key: '10' },
-            { title: '号码', dataIndex: 'address', key: '11' },
+            { title: '名称1', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
+            { title: '性别1', dataIndex: 'sex', key: '9' },
+            { title: '年龄1', dataIndex: 'age', key: '10' },
+            { title: '号码1', dataIndex: 'address', key: '11' },
             { title: '分组1', dataIndex: 'address', key: '2' },
             { title: '分组2', dataIndex: 'address', key: '3' },
             { title: '分组3', dataIndex: 'address', key: '4' },
@@ -66,10 +62,6 @@ class BaseManage extends React.Component {
     }
 
     componentDidMount() {
-        request.get('statistics/5a82adf3b06c97e0cd6c0f3d/room')
-            .then(res => {
-                console.log(res)
-            })
         setTimeout(() => {
             this.setState({
                 isLoading: false
@@ -129,8 +121,6 @@ class BaseManage extends React.Component {
                         onChange: this.pageChange
                     }} 
                 />
-                <button onClick={()=> this.change('allen') }>改变test值</button>
-                <div>{ this.props.test } </div>
             </div>
         )
     }

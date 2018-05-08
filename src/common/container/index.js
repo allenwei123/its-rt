@@ -6,13 +6,12 @@ import MyBrad from './myBread/index'
 import Mycontent from './content/content'
 
 export default class Container extends React.Component {
-    
     render() {
         return (
             <Layout>
-                <Top />
+                <Top history={this.props.history} />
                 <Layout>
-                    <Aside />
+                    <Aside history={this.props.history} />
                     <Layout style={{ padding: '0 24px 24px' }}>
                         <MyBrad />                                                               
                         <Mycontent />

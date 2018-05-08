@@ -1,0 +1,58 @@
+.c-login-container {
+    width: 450px;
+  }
+  .bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/image/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(25%);
+    z-index: -1;
+  }
+  .login-area {
+    width: 420px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -126px;
+    margin-left: -210px;
+  }
+
+  .login-area .header h2 {
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    background-color: #eee;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .login-area .form {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+  .login-area .form .form-item input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .login-area .footer {
+    padding: 30px 20px;
+  }
+  .login-area .footer button {
+    background-color: #f71e43;
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+  }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Avatar, Layout } from 'antd';
+import menuList from '@/mock/menuList'
+
 import './header.scss'
 const { Header } = Layout
 
@@ -7,33 +9,25 @@ export default class Top extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '22',
             navIndex: 0,
-            items:[
-                {id:0,name:'首页'},
-                {id:1,name:'物业管理'},
-                {id:2,name:'物业服务'},
-                {id:3,name:'社区物联'},
-                {id:4,name:'商圈管理'},
-                {id:5,name:'数据统计'},
-            ]
+            items:[]
         }
     }
     componentDidMount() {
-        this.getUser()
-        console.log(this.state)
-    }
-
-    getUser = () => {
+        let items = menuList.map(item => {
+            let {name, id, src} = item;
+            return { name, id ,src };
+        })
         this.setState({
-            username: 'Muyy'
+            items
         })
     }
     
-    navClick = (i) => {
+    navClick = (i,link) => {
        this.setState({
             navIndex: i
        })
+       this.props.history.push(link)
     }
 
     render() {
@@ -44,7 +38,7 @@ export default class Top extends React.Component {
                     <ul className="c-top-nav">
                         { this.state.items.map((item,index) => (
                             <li 
-                                onClick={(e)=> this.navClick(index,e)}
+                                onClick={(e)=> this.navClick(index,item.src,e)}
                                 key={index}
                                 className={this.state.navIndex === index ? 'c-nav-active' :''}
                             >{item.name}</li>
