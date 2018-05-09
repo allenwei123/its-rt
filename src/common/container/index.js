@@ -6,6 +6,11 @@ import MyBrad from './myBread/index'
 import Mycontent from './content/content'
 
 export default class Container extends React.Component {
+
+    componentDidMount() {
+        console.log(111)
+    }
+
     render() {
         return (
             <Layout>

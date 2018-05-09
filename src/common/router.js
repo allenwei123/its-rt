@@ -16,7 +16,8 @@ export default class Rout extends React.Component {
                 <Switch>
                     <Route path="/" exact render={()=> <Redirect to="/home"/>} />
                     <Route path="/home" component={Container} />
-                    <Route component={Login} />
+                    <Route path="/login" component={Login} />
+                    <Route component={Err} />
                 </Switch>
             </Router>
         )

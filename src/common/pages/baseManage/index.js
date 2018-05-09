@@ -71,9 +71,11 @@ class BaseManage extends React.Component {
                 console.log(res)
             })
         setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
+            if(this.refs.myRef) {
+                this.setState({
+                    isLoading: false
+                })
+            }
         }, 1000);
     }
 
@@ -109,7 +111,7 @@ class BaseManage extends React.Component {
     render() {
 
         return (
-            <div>
+            <div ref="myRef">
                 <Form layout="inline" onSubmit={this.handleSubmit}>
                 <FormItem>
                 <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="搜素名字" />
