@@ -34,11 +34,11 @@ class BaseManage extends React.Component {
                 let html;
                 if(row.btn === 1) {
                     html = (
-                        <a href="javascript:;">删除</a>
+                        <span>删除</span>
                     )
                 }else {
                     html = (
-                        <a href="javascript:;">编辑</a>
+                        <span>编辑</span>
                     )
                 }
                 return html
@@ -68,8 +68,8 @@ class BaseManage extends React.Component {
     componentDidMount() {
         request.get('statistics/5a82adf3b06c97e0cd6c0f3d/room')
             .then(res => {
-                console.log(res)
-            })
+
+            });
         setTimeout(() => {
             if(this.refs.myRef) {
                 this.setState({

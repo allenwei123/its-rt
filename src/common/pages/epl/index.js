@@ -1,7 +1,6 @@
 import React from 'react'
 import { Table ,Form ,Icon, Input } from 'antd'
 import { connect } from 'react-redux'
-import { test as ChangeTest } from '@/store/actions/common'
 
 const FormItem = Form.Item;
 
@@ -10,7 +9,7 @@ class BaseManage extends React.Component {
     state = {
         name : '基础管理',
         columns : [
-            { title: '名称1', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
+            { title: '名称1', width: 100, dataIndex: 'name', key: 'name' },
             { title: '性别1', dataIndex: 'sex', key: '9' },
             { title: '年龄1', dataIndex: 'age', key: '10' },
             { title: '号码1', dataIndex: 'address', key: '11' },
@@ -30,11 +29,11 @@ class BaseManage extends React.Component {
                 let html;
                 if(row.btn === 1) {
                     html = (
-                        <a href="javascript:;">删除</a>
+                        <span>删除</span>
                     )
                 }else {
                     html = (
-                        <a href="javascript:;">编辑</a>
+                        <span>编辑</span>
                     )
                 }
                 return html

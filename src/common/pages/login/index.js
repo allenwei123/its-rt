@@ -2,9 +2,10 @@ import React from 'react'
 import './login.scss'
 import { changeToken, changeUid } from '@/store/actions/common'
 import { connect } from 'react-redux'
-import request from '@/common/utils/axios'
+import { login } from '@/service/user'
+import style from './login.scss'
 
-class Login extends React.Component {
+class LoginPage extends React.Component {
 
     state = {
         name : null,
@@ -25,13 +26,15 @@ class Login extends React.Component {
 
     login = () => {
         if(this.state.name && this.state.password) {
-            request.post('user/signIn', {
+            login({
                 phone: this.state.name,
                 pwd: this.state.password
             }).then(res => {
                 if(!res.errorCode) {
-                    this.props.changeToken(res.data.token)
-                    this.props.changeUid(res.data.id)
+                    localStorage.setItem('token',res.data.token);
+                    localStorage.setItem('userInfo',JSON.stringify(res.data));
+                    this.props.changeToken(res.data.token);
+                    this.props.changeUid(res.data.id);
                     this.props.history.push('/')
                 }
             })
@@ -41,18 +44,18 @@ class Login extends React.Component {
     render( ) {
         return (
             <div>
-                <div className="bg"></div>
-                <div className="login-area">
-                    <div className="header"><h2>后台登录</h2></div>
-                    <div className="form">
-                        <div className="form-item">
-                        <input type="text" placeholder="用户名" onChange={this.nameChange} />
+                <div className={ style.bg }></div>
+                <div className={ style['login-area'] }>
+                    <div className={ style["header"] }><h2>后台登录</h2></div>
+                    <div className={ style["form"] }>
+                        <div className={ style["form-item"] }>
+                            <input type="text" placeholder="用户名" onChange={this.nameChange} />
                         </div>
-                        <div className="form-item">
-                        <input type="password" placeholder="密码" onChange={this.pswChange} />
+                        <div className={ style["form-item"] }>
+                            <input type="password" placeholder="密码" onChange={this.pswChange} />
                         </div>
                     </div>
-                    <div className="footer">
+                    <div className={ style["footer"] }>
                         <button type="button" onClick={()=> this.login()}>登 录</button>
                     </div>
                 </div>
@@ -70,7 +73,7 @@ class Login extends React.Component {
         changeToken,
         changeUid
     }
-)(Login)
+)(LoginPage)
 
 
 

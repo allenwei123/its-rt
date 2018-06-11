@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '@/store'
 
 let service = axios.create({
-  baseURL: 'http://apismcm.test.bitiot.com.cn/v1',
+  baseURL: 'http://dev.apismcm.bitiot.com.cn/v1',
   timeout: 5000 // request timeout
 });
 
@@ -14,10 +14,10 @@ service.interceptors.request.use(config => {
   config.headers['PUSH-ID'] = '10086';
   config.headers['CLIENT'] = '1002';
   config.headers['Content-Type'] = 'application/json';
-  
+  config.headers['BIT-CID'] = '5a82adf3b06c97e0cd6c0f3d'
+
   // token
   if (store.getState('token')['Test'].token) {
-    
     config.headers['BIT-TOKEN'] = store.getState('token')['Test'].token
   }
 

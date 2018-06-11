@@ -1,7 +1,8 @@
-import { Route, Switch, Redirect } from 'react-router-dom'
+import {  Switch, Redirect } from 'react-router-dom'
 import React from 'react';
 import { Layout } from 'antd'
-import routes from '@/mock/routes'
+import  routes from '@/mock/routes'
+import PrivateRoute from '@/common/components/PrivateRoute'
 
 const { Content } = Layout
 export default class Rout extends React.Component {
@@ -9,14 +10,10 @@ export default class Rout extends React.Component {
         rs:[]
     }
     componentDidMount() {
-        setTimeout(()=> {
-            const mockJson = {aaa:true ,bbb:true};
-            let bs = routes.filter(item => mockJson[item.show]);
-            this.setState({
-                rs: bs
-            })
-        },1000)
-    }
+        this.setState({
+            rs: routes
+        });
+    };
 
     render() {
 
@@ -24,10 +21,10 @@ export default class Rout extends React.Component {
             <Content style={{background: '#fff',padding:'10px'}}>
                 <Switch>
                     {this.state.rs.map((route, i) => {
-                        return (<Route key={i} exact path={route.path} component={route.component} />)
+                        return (<PrivateRoute key={i} exact path={route.path} bread={route.bread} show={route.show} component={route.component} />)
                     })}
-                    {this.state.rs.length > 0 ? (<Redirect exact from="/home" to={this.state.rs[0].path} />) : '' } 
-                    {this.state.rs.length > 0 ? (<Redirect to="/404" />) : '' } 
+                    {this.state.rs.length > 0 ? (<Redirect exact from="/home" to={this.state.rs[0].path} />) : '' }
+                    {this.state.rs.length > 0 ? (<Redirect to="/404" />) : '' }
                 </Switch>
             </Content>
         )

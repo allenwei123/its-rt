@@ -1,16 +1,25 @@
 import React from 'react'
 import { Breadcrumb } from 'antd'
+import { connect } from 'react-redux'
 
-export default class Container extends React.Component {
+class MyBread extends React.Component {
     
     render() {
         return (
-            <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>首页</Breadcrumb.Item>
-                <Breadcrumb.Item>物业管理</Breadcrumb.Item>
-                <Breadcrumb.Item>基础管理</Breadcrumb.Item>
-                <Breadcrumb.Item>楼栋管理</Breadcrumb.Item>
+            <Breadcrumb style={{ padding: '16px 20px',backgroundColor: '#fff',margin: '0 -20px 20px' }}>
+                { 
+                   (this.props.breadData) 
+                   ? this.props.breadData.map(item => (
+                    <Breadcrumb.Item key={item.name}> { item.name } </Breadcrumb.Item>
+                )) : null }
             </Breadcrumb>
         )
     }
 }
+
+export default connect(
+    (state) => ({
+        breadData: state.Nav.navData
+    }),
+    {}
+)(MyBread)

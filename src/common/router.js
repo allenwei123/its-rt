@@ -8,6 +8,7 @@ import Login from 'pages/login'
 
 export default class Rout extends React.Component {
     componentWillMount() {
+        
     }
 
     render() {
@@ -15,7 +16,7 @@ export default class Rout extends React.Component {
             <Router history={history}>
                 <Switch>
                     <Route path="/" exact render={()=> <Redirect to="/home"/>} />
-                    <Route path="/home" component={Container} />
+                    <Route path="/home" component={ Container } />
                     <Route path="/login" component={Login} />
                     <Route component={Err} />
                 </Switch>

@@ -1,6 +1,7 @@
     $headerBg:#3988ff;
   $fontColor:#fff;
   $headerH: 50px;
+  :global {
   .c-header {
     // position: fixed;
     // top: 0;
@@ -61,3 +62,4 @@
       color:white;
     }
   }
+}

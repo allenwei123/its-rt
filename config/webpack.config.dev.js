@@ -129,7 +129,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders:['style-loader','css-loader','sass-loader']
+        loaders:['style-loader','css-loader?modules','sass-loader']
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -171,9 +171,6 @@ module.exports = {
               require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                },
               },
               {
                 loader: require.resolve('postcss-loader'),

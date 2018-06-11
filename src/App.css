@@ -18,6 +18,7 @@ background-color: transparent;
 background-color: #8899a7;
 border-radius: 4px;
 }
+
 @import '~antd/dist/antd.css';
 
 @keyframes App-logo-spin {
